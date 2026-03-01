@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Brackets - Haunt the Arena</title>
+    <meta name="description" content="Live tournament brackets for Haunt the Arena - Halloween Esports tournament featuring Tekken 7 and BGMI Arena.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;500&family=Fira+Code:wght@300;400;500&family=Creepster&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/brackets.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Three.js Background Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="brackets-header">
+            <div class="container">
+                <div class="powered-by-hero">
+                    <p class="powered-by-text">Powered by Code Nexus</p>
+                </div>
+                <h1 class="brackets-title">Tournament Brackets</h1>
+                <p class="brackets-subtitle">Live Tournament Progress</p>
+                <div class="brackets-nav">
+                    <a href="index.html" class="nav-link">← Back to Registration</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tournament Status -->
+        <section class="tournament-status">
+            <div class="container">
+                <div id="status-message" class="status-message">
+                    <div class="status-content">
+                        <h3>Brackets Coming Soon</h3>
+                        <p>Tournament brackets will be available after registration closes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BGMI Brackets -->
+        <section id="bgmi-brackets" class="brackets-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">BGMI Arena Tournament</h2>
+                <div class="bracket-container">
+                    <div id="bgmi-bracket-tree" class="bracket-tree">
+                        <!-- BGMI bracket will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tekken Brackets -->
+        <section id="tekken-brackets" class="brackets-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Tekken 7 Tournament</h2>
+                <div class="bracket-container">
+                    <div id="tekken-bracket-tree" class="bracket-tree">
+                        <!-- Tekken bracket will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Updates Indicator -->
+        <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span class="live-text">Live Updates</span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <p>Organized by: Vedam Esports</p>
+                    <p>Location: Vedam Campus</p>
+                    <p>Date: 31st October 2025</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Registration</a>
+                        <a href="brackets.html" class="footer-link">Brackets</a>
+                        <a href="admin.html" class="footer-link">Admin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vedam Esports | All rights reserved.</p>
+                <p class="disclaimer">Powered by Code Nexus</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/three-background.js"></script>
+    <script src="js/brackets.js"></script>
+</body>
+</html>

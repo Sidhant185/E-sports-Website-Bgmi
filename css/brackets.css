@@ -1,0 +1,356 @@
+/* Brackets Page Styles */
+
+/* Header */
+.brackets-header {
+  background: transparent;
+  padding: 3rem 0 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--blood-red);
+}
+
+.brackets-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--ghost-white);
+  text-shadow: 0 0 20px var(--blood-red);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.brackets-subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: var(--light-gray);
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+}
+
+.brackets-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--ghost-white);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--blood-red);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-normal);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link:hover {
+  background: var(--blood-red);
+  border-color: var(--bright-red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.admin-link {
+  border-color: var(--bright-red);
+  background: rgba(139, 0, 0, 0.2);
+}
+
+.admin-link:hover {
+  background: var(--bright-red);
+}
+
+/* Tournament Status */
+.tournament-status {
+  padding: 3rem 0;
+  background: transparent;
+}
+
+.status-message {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.status-content {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 2px solid var(--blood-red);
+  backdrop-filter: blur(10px);
+}
+
+.status-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--bright-red);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-content p {
+  color: var(--ghost-white);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Brackets Section */
+.brackets-section {
+  padding: 3rem 0;
+  background: transparent;
+}
+
+.bracket-container {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  border: 2px solid var(--blood-red);
+  padding: 2rem;
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.bracket-tree {
+  display: flex;
+  gap: 2rem;
+  min-width: max-content;
+  padding: 1rem;
+}
+
+.bracket-round {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 200px;
+}
+
+.round-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--bright-red);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  background: rgba(139, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.match {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--blood-red);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.match:hover {
+  background: rgba(139, 0, 0, 0.2);
+  border-color: var(--bright-red);
+}
+
+.match.completed {
+  background: rgba(0, 100, 0, 0.2);
+  border-color: #00ff00;
+}
+
+.match.current {
+  background: rgba(255, 255, 0, 0.1);
+  border-color: #ffff00;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+}
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+.player:last-child {
+  border-bottom: none;
+}
+
+.player.winner {
+  color: var(--bright-red);
+  font-weight: 700;
+}
+
+.player-name {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ghost-white);
+}
+
+.player-score {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--light-gray);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.match-info {
+  font-size: 0.7rem;
+  color: var(--light-gray);
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Connecting Lines */
+.bracket-tree::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, var(--blood-red) 1px, transparent 1px),
+    linear-gradient(0deg, var(--blood-red) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Live Indicator */
+.live-indicator {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid var(--bright-red);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--bright-red);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.live-text {
+  color: var(--ghost-white);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Empty State */
+.empty-bracket {
+  text-align: center;
+  padding: 3rem;
+  color: var(--light-gray);
+}
+
+.empty-bracket h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--bright-red);
+  margin-bottom: 1rem;
+}
+
+.empty-bracket p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .brackets-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-link {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+  
+  .bracket-tree {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .bracket-round {
+    min-width: 100%;
+  }
+  
+  .match {
+    padding: 0.8rem;
+  }
+  
+  .player-name {
+    font-size: 0.8rem;
+  }
+  
+  .live-indicator {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .live-text {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brackets-title {
+    font-size: 2rem;
+  }
+  
+  .brackets-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .bracket-container {
+    padding: 1rem;
+  }
+  
+  .match {
+    padding: 0.6rem;
+  }
+  
+  .player-name {
+    font-size: 0.7rem;
+  }
+  
+  .player-score {
+    font-size: 0.7rem;
+  }
+}

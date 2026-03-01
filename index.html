@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haunt the Arena: Halloween Esports Tournament | Vedam Esports</title>
+    <meta name="description" content="Vedam Esports presents Haunt the Arena - Halloween Esports tournament featuring Tekken 7 and BGMI Arena. Register now for the spookiest gaming event of 2025!">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;500&family=Fira+Code:wght@300;400;500&family=Creepster&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Three.js Background Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="powered-by-hero">
+                    <p class="powered-by-text">Powered by Code Nexus</p>
+                </div>
+                <h1 class="hero-title glitch-text">
+                    <span class="glitch-line">Enter if you dare</span>
+                    <span class="glitch-line">— The Ultimate Halloween</span>
+                    <span class="glitch-line">Esports Battle Awaits!</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="game-highlight">Tekken 7 Showdowns</span> • 
+                    <span class="game-highlight">BGMI Knockout Arena</span> • 
+                    <span class="date-highlight">31st October 2025</span>
+                </p>
+                <div class="hero-buttons">
+                    <button class="cta-btn primary" id="register-btn">
+                        <span>Register Now</span>
+                        <span class="btn-icon">🎮</span>
+                    </button>
+                    <button class="cta-btn secondary" id="details-btn">
+                        <span>View Tournament Details</span>
+                        <span class="btn-icon">👻</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-fog"></div>
+        </section>
+
+        <!-- Games & Format Section -->
+        <section id="games" class="games-section">
+            <div class="container">
+                <div class="section-intro powered-by">
+                    <p class="powered-by-text">Powered by Code Nexus</p>
+                </div>
+                <div class="section-intro">
+                    <h2 class="section-title">
+                        <span class="typewriter-text">Choose Your Battleground</span>
+                    </h2>
+                    <p class="section-description">
+                        Dive into the heart of competitive gaming with two thrilling tournaments. 
+                        Master the art of fighting in Tekken 7 or lead your squad to victory in BGMI Arena. 
+                        The choice is yours — but only the bravest will survive the knockout rounds.
+                    </p>
+                    <div class="event-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">🎮</div>
+                            <div class="stat-text">
+                                <div class="stat-number">2</div>
+                                <div class="stat-label">Esports Battles</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-text">
+                                <div class="stat-number">Knockout</div>
+                                <div class="stat-label">Tournament Format</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">⚔️</div>
+                            <div class="stat-text">
+                                <div class="stat-number">1v1 & 4v4</div>
+                                <div class="stat-label">Team Sizes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="games-grid">
+                    <!-- Tekken 7 Card -->
+                    <div class="game-card tekken-card" data-game="tekken7">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="game-icon">🥊</div>
+                                <h3 class="game-title">Tekken 7</h3>
+                                <p class="game-mode">1v1 Knockout</p>
+                                <div class="platform-badge">PC/Console</div>
+                            </div>
+                            <div class="card-back">
+                                <h4>Tournament Details</h4>
+                                <ul>
+                                    <li><strong>Format:</strong> Single Elimination</li>
+                                    <li><strong>Platform:</strong> PC/Console</li>
+                                    <li><strong>Style:</strong> 1v1 Fighting</li>
+                                </ul>
+                                <div class="game-description">
+                                    Test your skills in the ultimate fighting tournament. Master combos, perfect your timing, and dominate your opponent in this high-stakes knockout battle.
+                                </div>
+                                <div class="participants-count">
+                                    <span class="count-label">Players Registered:</span>
+                                    <span class="count-number" id="tekken-count">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BGMI Card -->
+                    <div class="game-card bgmi-card" data-game="bgmi">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="game-icon">🎯</div>
+                                <h3 class="game-title">BGMI Arena</h3>
+                                <p class="game-mode">4v4 Knockout</p>
+                                <div class="platform-badge">Mobile</div>
+                            </div>
+                            <div class="card-back">
+                                <h4>Tournament Details</h4>
+                                <ul>
+                                    <li><strong>Format:</strong> Classic Arena → Semis → Finals</li>
+                                    <li><strong>Platform:</strong> Mobile</li>
+                                    <li><strong>Team Size:</strong> 4v4 Squad</li>
+                                    <li><strong>Mode:</strong> TDM Knockout</li>
+                                </ul>
+                                <div class="game-description">
+                                    Lead your squad through intense team battles. Coordinate with your teammates, strategize your approach, and emerge victorious in the arena.
+                                </div>
+                                <div class="participants-count">
+                                    <span class="count-label">Teams Registered:</span>
+                                    <span class="count-number" id="bgmi-count">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules & Guidelines Section -->
+        <section id="rules" class="rules-section">
+            <div class="container">
+                <h2 class="section-title">Rules & Guidelines</h2>
+                <div class="accordion-container">
+                    <!-- Tekken 7 Rules -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <span class="icon">⚔️</span>
+                                <span>Tekken 7 Rules</span>
+                            </div>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="rules-content">
+                                <h4>👾 General Rules:</h4>
+                                <ol>
+                                    <li><strong>Controllers:</strong> All controllers will be provided by the organizing team. Personal controllers are not allowed unless approved by staff.</li>
+                                    <li><strong>Character Selection:</strong> Players may choose any character before the match begins. Once selected, character change is not allowed mid-match.</li>
+                                    <li><strong>No Cheats or Modifications:</strong> Strictly no mods, macros, or external aids.</li>
+                                    <li><strong>Fair Play:</strong> Unsportsmanlike behavior (taunting, pausing intentionally, verbal abuse) will lead to instant disqualification.</li>
+                                    <li><strong>Disconnect Rule:</strong> In case of a game crash or disconnect, the round may be restarted at the organizer's discretion.</li>
+                                    <li><strong>Judges' Decision:</strong> The organizing committee's decision will be final in all disputes.</li>
+                                    <li><strong>Knockout Format:</strong> Losing a match means elimination from the tournament — no retries.</li>
+                                </ol>
+                                
+                                <div class="rules-note">
+                                    <p><strong>📋 Note:</strong></p>
+                                    <ul>
+                                        <li>Only the participant (player) should fill this form for registration.</li>
+                                        <li>Players must report to the venue 10 minutes before their match.</li>
+                                    </ul>
+                                </div>
+                                
+                                <p class="rules-closing">⚡ Bring your A-game and fight your way to victory — only one champion will remain standing!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BGMI Rules -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <span class="icon">🏆</span>
+                                <span>BGMI Esports Rules</span>
+                            </div>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="rules-content">
+                                <div class="important-note">
+                                    <h4>📌 Important:</h4>
+                                    <p>👉 Only the Team Leader is required to fill out this form.</p>
+                                    <p>(Please ensure all team details are accurate before submission.)</p>
+                                </div>
+                                
+                                <h4>🎮 Match Format</h4>
+                                <ul>
+                                    <li><strong>Mode:</strong> TDM (Team Deathmatch)</li>
+                                    <li><strong>Type:</strong> Pure 4v4 Knockout format</li>
+                                    <li><strong>Map:</strong> TDM – Warehouse</li>
+                                </ul>
+                                
+                                <h4>⚔️ Weapon Rules</h4>
+                                <div class="allowed-weapons">
+                                    <p><strong>✅ Allowed Weapons:</strong></p>
+                                    <ul>
+                                        <li>M416</li>
+                                        <li>AKM</li>
+                                    </ul>
+                                </div>
+                                <div class="restricted-weapons">
+                                    <p><strong>❌ Restricted Weapons:</strong></p>
+                                    <ul>
+                                        <li>Any other gun (including special weapons like M24, AWM, etc.)</li>
+                                        <li>Using spawned sniper or heavy weapons between the containers is strictly prohibited.</li>
+                                    </ul>
+                                </div>
+                                
+                                <h4>🦺 Gameplay Restrictions</h4>
+                                <ul>
+                                    <li><strong>🚫 No Sliding:</strong> Every player must turn off the slide feature before the match starts.</li>
+                                    <li><strong>🚫 No Level 3 Vests:</strong> Picking up Level 3 vests from the containers is not allowed.</li>
+                                </ul>
+                                
+                                <p><strong>🛑 Any player/team found violating the rules will face instant disqualification.</strong></p>
+                                
+                                <div class="fair-play">
+                                    <h4>⚠️ Fair Play Reminder</h4>
+                                    <p>All players are expected to maintain sportsmanship and respect event officials' decisions.</p>
+                                    <p>Any form of cheating, glitching, or exploiting bugs will result in immediate disqualification.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="registration" class="registration-section">
+            <div class="container">
+                <h2 class="section-title">Enter the Haunted Arena</h2>
+                
+                <form id="registration-form" class="registration-form">
+                    <!-- Step 1: Game Selection -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Choose Your Battle</h3>
+                        <div class="game-selection">
+                            <label class="game-option">
+                                <input type="radio" name="game" value="tekken7" required>
+                                <div class="option-card">
+                                    <span class="option-icon">🥊</span>
+                                    <span class="option-title">Tekken 7</span>
+                                    <span class="option-desc">1v1 Fighting</span>
+                                </div>
+                            </label>
+                            <label class="game-option">
+                                <input type="radio" name="game" value="bgmi" required>
+                                <div class="option-card">
+                                    <span class="option-icon">🎯</span>
+                                    <span class="option-title">BGMI Arena</span>
+                                    <span class="option-desc">4v4 Battle Royale</span>
+                                </div>
+                            </label>
+                        </div>
+                        <button type="button" class="form-btn next-btn" disabled>Next Step</button>
+                    </div>
+
+                    <!-- Step 2: Player Details -->
+                    <div class="form-step" data-step="2">
+                        <!-- Tekken Player Fields -->
+                        <div id="tekken-fields">
+                            <h3>Tekken Player Information</h3>
+                            <div class="form-group">
+                                <label for="playerName">Player Name</label>
+                                <input type="text" id="playerName" name="playerName" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="playerEmail">Email Address (@vedamsot.org)</label>
+                                <input type="email" id="playerEmail" name="playerEmail" pattern=".*@vedamsot\.org$" required>
+                                <span class="error-message"></span>
+                                <small class="field-hint">Must be a valid @vedamsot.org email address</small>
+                            </div>
+                        </div>
+
+                        <!-- BGMI Team Fields -->
+                        <div id="bgmi-fields" style="display: none;">
+                            <h3>BGMI Team Information</h3>
+                            
+                            <!-- Team Captain -->
+                            <div class="team-section">
+                                <h4>Team Captain</h4>
+                                <div class="form-group">
+                                    <label for="teamName">Team Name</label>
+                                    <input type="text" id="teamName" name="teamName" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="captainName">Captain Name</label>
+                                    <input type="text" id="captainName" name="captainName" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="captainEmail">Captain Email (@vedamsot.org)</label>
+                                    <input type="email" id="captainEmail" name="captainEmail" pattern=".*@vedamsot\.org$" required>
+                                    <span class="error-message"></span>
+                                    <small class="field-hint">Must be a valid @vedamsot.org email address</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="captainUID">Captain BGMI UID</label>
+                                    <input type="text" id="captainUID" name="captainUID" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <!-- Team Members -->
+                            <div class="team-section">
+                                <h4>Team Members (3 Players)</h4>
+                                
+                                <div class="member-group">
+                                    <h5>Member 1</h5>
+                                    <div class="form-group">
+                                        <label for="member1Name">Name</label>
+                                        <input type="text" id="member1Name" name="member1Name" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member1Email">Email (@vedamsot.org)</label>
+                                        <input type="email" id="member1Email" name="member1Email" pattern=".*@vedamsot\.org$" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member1UID">BGMI UID</label>
+                                        <input type="text" id="member1UID" name="member1UID" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="member-group">
+                                    <h5>Member 2</h5>
+                                    <div class="form-group">
+                                        <label for="member2Name">Name</label>
+                                        <input type="text" id="member2Name" name="member2Name" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member2Email">Email (@vedamsot.org)</label>
+                                        <input type="email" id="member2Email" name="member2Email" pattern=".*@vedamsot\.org$" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member2UID">BGMI UID</label>
+                                        <input type="text" id="member2UID" name="member2UID" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="member-group">
+                                    <h5>Member 3</h5>
+                                    <div class="form-group">
+                                        <label for="member3Name">Name</label>
+                                        <input type="text" id="member3Name" name="member3Name" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member3Email">Email (@vedamsot.org)</label>
+                                        <input type="email" id="member3Email" name="member3Email" pattern=".*@vedamsot\.org$" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="member3UID">BGMI UID</label>
+                                        <input type="text" id="member3UID" name="member3UID" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="form-btn prev-btn">Previous</button>
+                            <button type="button" class="form-btn next-btn">
+                                <span>Submit & Enter the Haunted Arena</span>
+                                <span class="btn-icon">👻</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Confirmation -->
+                    <div class="form-step" data-step="3">
+                        <h3>Confirm Registration</h3>
+                        <div id="confirmation-content">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="braveEnough" name="braveEnough" required>
+                                <span class="checkmark"></span>
+                                Are you brave enough to enter the arena?
+                            </label>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="form-btn prev-btn">Previous</button>
+                            <button type="submit" class="form-btn submit-btn">
+                                <span>Submit & Enter the Haunted Arena</span>
+                                <span class="btn-icon">👻</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="success-message" class="success-message" style="display: none;">
+                    <div class="success-content">
+                        <h3>🎉 Welcome to the Arena!</h3>
+                        <p>Your registration has been submitted successfully. Prepare for battle!</p>
+                        <button class="form-btn" onclick="resetForm()">Register Another Player</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details & Countdown -->
+        <section id="event-details" class="event-details-section">
+            <div class="container">
+                <h2 class="section-title">Event Details</h2>
+                
+                <div class="countdown-container">
+                    <h3>Time Until the Haunting Begins</h3>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="time-unit">
+                            <span class="time-number" id="days">000</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="hours">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="minutes">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="seconds">00</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-info-grid">
+                    <div class="info-card">
+                        <h4>📅 Date</h4>
+                        <p>31st October 2025</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📍 Location</h4>
+                        <p>Online Tournament</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>⏰ Timings</h4>
+                        <p>TBD</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🏆 Organizer</h4>
+                        <p>Vedam Esports</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hype/Teaser Section -->
+        <section id="hype" class="hype-section">
+            <div class="container">
+                <h2 class="section-title">The Arena Awaits</h2>
+                
+                <div class="hype-content">
+                    <div class="main-quote">
+                        <p>"Knockout or be knocked out — this Halloween, there's no respawn."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Actions</h4>
+                    <div class="footer-actions">
+                        <button class="footer-btn" id="footer-register-btn">
+                            <span class="icon">🎮</span> Register Now
+                        </button>
+                        <a href="brackets.html" class="footer-btn">
+                            <span class="icon">🏆</span> View Brackets
+                        </a>
+                        <a href="admin.html" class="footer-btn admin-btn">
+                            Admin Login
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <p>Organized by: Vedam Esports</p>
+                    <p>Location: Vedam Campus</p>
+                    <p>Date: 31st October 2025</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vedam Esports | All rights reserved.</p>
+                <p class="disclaimer">By registering, you agree to the tournament rules.</p>
+                <p class="disclaimer">Powered by Code Nexus</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button id="mute-btn" class="mute-btn" title="Toggle Sound">
+            <span class="sound-icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/three-background.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/registration.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

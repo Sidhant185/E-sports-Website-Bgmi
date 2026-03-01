@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Haunt the Arena</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  </head>
+  <body class="admin-body">
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <div class="container">
+        <h1>🏆 Tournament Admin Panel</h1>
+        <div class="admin-controls">
+          <span id="admin-status" class="admin-status">Not logged in</span>
+          <button id="logout-btn" class="logout-btn" style="display: none">
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Login Form -->
+    <div id="login-section" class="login-section">
+      <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="login-form" class="login-form">
+          <div class="form-group">
+            <label for="admin-email">Email</label>
+            <input type="email" id="admin-email" required />
+          </div>
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <input type="password" id="admin-password" required />
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+          <div
+            id="login-error"
+            class="error-message"
+            style="display: none"
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none">
+      <div class="container">
+        <!-- Powered by Branding -->
+        <div class="powered-by-admin">
+          <p class="powered-by-text-admin">Powered by Code Nexus</p>
+        </div>
+
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="registrations">
+            Registrations
+          </button>
+          <button class="tab-btn" data-tab="tournament-settings">
+            Tournament Settings
+          </button>
+          <button class="tab-btn" data-tab="brackets">Brackets</button>
+        </div>
+
+        <!-- Registrations Tab -->
+        <div id="registrations-tab" class="tab-content active">
+          <section class="admin-section">
+            <h2>Registration Management</h2>
+
+            <!-- BGMI Teams -->
+            <div class="registration-section">
+              <h3>BGMI Teams</h3>
+              <div class="registrations-table">
+                <table id="bgmi-teams-table">
+                  <thead>
+                    <tr>
+                      <th>Team Name</th>
+                      <th>Captain</th>
+                      <th>Captain Email</th>
+                      <th>Members</th>
+                      <th>Registered</th>
+                    </tr>
+                  </thead>
+                  <tbody id="bgmi-teams-body">
+                    <!-- Dynamic content -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tekken Players -->
+            <div class="registration-section">
+              <h3>Tekken Players</h3>
+              <div class="registrations-table">
+                <table id="tekken-players-table">
+                  <thead>
+                    <tr>
+                      <th>Player Name</th>
+                      <th>Email</th>
+                      <th>Registered</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tekken-players-body">
+                    <!-- Dynamic content -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Tournament Settings Tab -->
+        <div id="tournament-settings-tab" class="tab-content">
+          <section class="admin-section">
+            <h2>Tournament Settings</h2>
+
+            <div class="settings-grid">
+              <div class="setting-card">
+                <h3>Registration Status</h3>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="registration-toggle" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span id="registration-status" class="status-text">Open</span>
+                </div>
+                <p class="setting-description">
+                  Control whether new registrations are accepted
+                </p>
+              </div>
+
+              <div class="setting-card">
+                <h3>Brackets Visibility</h3>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="brackets-toggle" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span id="brackets-status" class="status-text">Hidden</span>
+                </div>
+                <p class="setting-description">
+                  Show/hide tournament brackets to public
+                </p>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button id="generate-brackets-btn" class="action-btn primary">
+                Generate Brackets
+              </button>
+              <button id="reset-tournament-btn" class="action-btn danger">
+                Reset Tournament
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Brackets Tab -->
+        <div id="brackets-tab" class="tab-content">
+          <section class="admin-section">
+            <h2>Bracket Management</h2>
+
+            <!-- BGMI Bracket Management -->
+            <div class="bracket-section">
+              <h3>BGMI Tournament Bracket</h3>
+              <div id="bgmi-admin-bracket" class="admin-bracket">
+                <!-- BGMI bracket management will be rendered here -->
+              </div>
+            </div>
+
+            <!-- Tekken Bracket Management -->
+            <div class="bracket-section">
+              <h3>Tekken Tournament Bracket</h3>
+              <div id="tekken-admin-bracket" class="admin-bracket">
+                <!-- Tekken bracket management will be rendered here -->
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bracket Preview Modal -->
+    <div
+      id="bracket-preview-modal"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        overflow: auto;
+      "
+    >
+      <div
+        style="
+          max-width: 1100px;
+          margin: 40px auto;
+          background: #0d0d0f;
+          border: 1px solid #2a2a2e;
+          border-radius: 8px;
+          padding: 20px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+          max-height: 85vh;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <h2 style="margin-top: 0">Preview Brackets</h2>
+        <p style="margin-bottom: 16px">
+          Please review and adjust Round 1 matchups if needed. Click Confirm to
+          finalize and publish.
+        </p>
+        <div
+          id="bracket-preview-content"
+          style="overflow: auto; padding-right: 8px"
+        >
+          <div
+            class="bracket-section"
+            style="min-width: 600px; margin-bottom: 24px"
+          >
+            <h3>Seeding Editor</h3>
+            <p style="margin: 8px 0 16px">
+              Reorder participants to change seeding, then apply to regenerate
+              brackets.
+            </p>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px"
+            >
+              <div>
+                <h4 style="margin: 0 0 8px">BGMI Seeding</h4>
+                <div
+                  id="bgmi-seeding-controls"
+                  style="display: flex; gap: 8px; margin-bottom: 8px"
+                >
+                  <button id="bgmi-shuffle-seeds" class="action-btn">
+                    Shuffle
+                  </button>
+                  <button id="bgmi-reset-seeds" class="action-btn">
+                    Reset
+                  </button>
+                </div>
+                <ul
+                  id="bgmi-seeding-list"
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    border: 1px solid #2a2a2e;
+                    border-radius: 6px;
+                    max-height: 280px;
+                    overflow: auto;
+                  "
+                ></ul>
+              </div>
+              <div>
+                <h4 style="margin: 0 0 8px">Tekken Seeding</h4>
+                <div
+                  id="tekken-seeding-controls"
+                  style="display: flex; gap: 8px; margin-bottom: 8px"
+                >
+                  <button id="tekken-shuffle-seeds" class="action-btn">
+                    Shuffle
+                  </button>
+                  <button id="tekken-reset-seeds" class="action-btn">
+                    Reset
+                  </button>
+                </div>
+                <ul
+                  id="tekken-seeding-list"
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    border: 1px solid #2a2a2e;
+                    border-radius: 6px;
+                    max-height: 280px;
+                    overflow: auto;
+                  "
+                ></ul>
+              </div>
+            </div>
+            <div
+              style="margin-top: 12px; display: flex; justify-content: flex-end"
+            >
+              <button id="apply-seeding-btn" class="action-btn primary">
+                Apply Seeding to Draft
+              </button>
+            </div>
+          </div>
+          <div class="bracket-section" style="min-width: 600px">
+            <h3>BGMI Draft</h3>
+            <div id="bgmi-preview-bracket" class="admin-bracket"></div>
+          </div>
+          <div
+            class="bracket-section"
+            style="margin-top: 20px; min-width: 600px"
+          >
+            <h3>Tekken Draft</h3>
+            <div id="tekken-preview-bracket" class="admin-bracket"></div>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 20px;
+          "
+        >
+          <button id="cancel-bracket-preview-btn" class="action-btn">
+            Cancel
+          </button>
+          <button id="confirm-bracket-preview-btn" class="action-btn primary">
+            Confirm & Publish
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="admin-footer">
+      <div class="container">
+        <p>&copy; 2025 Vedam Esports | All rights reserved.</p>
+        <p class="disclaimer">Powered by Code Nexus</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

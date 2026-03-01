@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+<div align="center">
 
 # 🎮 Haunt the Arena — Halloween Esports Tournament
 
@@ -45,6 +45,7 @@ This is a production-ready esports tournament website designed for the **"Haunt 
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 | Technology | Purpose |
 |---|---|
 | **HTML5** | Semantic markup and page structure |
@@ -53,6 +54,7 @@ This is a production-ready esports tournament website designed for the **"Haunt 
 | **Three.js (r128)** | WebGL 3D particle background and visual effects |
 
 ### Backend & Infrastructure
+
 | Technology | Purpose |
 |---|---|
 | **Firebase Firestore** | NoSQL real-time database for registrations, tournaments, brackets |
@@ -61,6 +63,7 @@ This is a production-ready esports tournament website designed for the **"Haunt 
 | **Firestore Security Rules** | Granular read/write access control |
 
 ### Design
+
 | Technology | Purpose |
 |---|---|
 | **Google Fonts** | Orbitron, Exo 2, Inter, JetBrains Mono, Fira Code, Creepster |
@@ -73,35 +76,35 @@ This is a production-ready esports tournament website designed for the **"Haunt 
 
 ```
 Esports/
-├── index.html                  # 🏠 Main tournament landing page
-├── admin.html                  # 🔐 Admin dashboard (auth-protected)
-├── brackets.html               # 🏆 Tournament bracket viewer
+├── index.html                  # Main tournament landing page
+├── admin.html                  # Admin dashboard (auth-protected)
+├── brackets.html               # Tournament bracket viewer
 │
 ├── css/
-│   ├── style.css               # 🎨 Core styles (34KB) — design tokens, layout, components
-│   ├── animations.css          # ✨ Keyframe animations — glitch, fog, glow, shake, typewriter
-│   ├── admin.css               # 🔧 Admin panel styles
-│   └── brackets.css            # 🏆 Bracket page styles
+│   ├── style.css               # Core styles — design tokens, layout, components
+│   ├── animations.css          # Keyframe animations — glitch, fog, glow, shake
+│   ├── admin.css               # Admin panel styles
+│   └── brackets.css            # Bracket page styles
 │
 ├── js/
-│   ├── firebase-config.js      # 🔥 Firebase initialization + default data seeding
-│   ├── three-background.js     # 🌌 Three.js WebGL particle system (14KB)
-│   ├── countdown.js            # ⏱️ Animated countdown timer component
-│   ├── registration.js         # 📝 Multi-step form logic + validation (23KB)
-│   ├── main.js                 # ⚡ Core app logic, UI interactions, audio system
-│   ├── admin.js                # 👨‍💼 Admin dashboard logic (50KB)
-│   └── brackets.js             # 🏆 Tournament bracket rendering
+│   ├── firebase-config.js      # Firebase initialization + default data seeding
+│   ├── three-background.js     # Three.js WebGL particle system
+│   ├── countdown.js            # Animated countdown timer component
+│   ├── registration.js         # Multi-step form logic + validation
+│   ├── main.js                 # Core app logic, UI interactions, audio system
+│   ├── admin.js                # Admin dashboard logic
+│   └── brackets.js             # Tournament bracket rendering
 │
 ├── assets/
-│   ├── images/                 # 🖼️ Favicon, logos, decorative assets
-│   ├── sounds/                 # 🔊 UI sound effects (hover, click, success, error)
-│   └── videos/                 # 🎬 Intro video files
+│   ├── images/                 # Favicon, logos, decorative assets
+│   ├── sounds/                 # UI sound effects
+│   └── videos/                 # Intro video files
 │
-├── firebase.json               # ⚙️ Firebase Hosting & Firestore configuration
-├── firestore.rules             # 🔒 Firestore security rules
-├── firestore.indexes.json      # 📇 Firestore composite indexes
-├── DEPLOYMENT.md               # 📦 Deployment guide
-└── FIXES.md                    # 🐛 Bug fixes & changelog
+├── firebase.json               # Firebase Hosting & Firestore configuration
+├── firestore.rules             # Firestore security rules
+├── firestore.indexes.json      # Firestore composite indexes
+├── DEPLOYMENT.md               # Deployment guide
+└── FIXES.md                    # Bug fixes & changelog
 ```
 
 ---
@@ -109,6 +112,7 @@ Esports/
 ## 🎮 Tournament Details
 
 ### 🥊 Tekken 7 — 1v1 Knockout
+
 | Detail | Info |
 |---|---|
 | **Format** | Single Elimination |
@@ -118,6 +122,7 @@ Esports/
 | **Disqualification** | Unsportsmanlike behavior, cheating, late arrival (>10 min) |
 
 ### 🎯 BGMI Arena — 4v4 TDM Knockout
+
 | Detail | Info |
 |---|---|
 | **Format** | Classic Arena → Semis → Finals |
@@ -191,7 +196,7 @@ Place the following files in their directories:
 |---|---|---|
 | `assets/images/` | `favicon.ico`, `logo.png` | Site favicon and event branding |
 | `assets/sounds/` | `hover.mp3`, `click.mp3`, `success.mp3`, `error.mp3`, `next.mp3`, `prev.mp3`, `glitch.mp3` | UI interaction sounds |
-| `assets/videos/` | `intro.mp4`, `intro.webm` | Optional intro video (3–5 seconds) |
+| `assets/videos/` | `intro.mp4`, `intro.webm` | Optional intro video (3-5 seconds) |
 
 ### 6. Run Locally
 
@@ -255,17 +260,15 @@ The main event page with the following sections:
 
 ### Color Palette
 
-```
-┌─────────────────────────────────────────────────────┐
-│  ██ #0a0a0a  Void Black      — Primary Background   │
-│  ██ #1a0a1f  Dark Purple     — Secondary Background  │
-│  ██ #8b00ff  Neon Purple     — Primary Accent        │
-│  ██ #ff6600  Halloween Orange — Secondary Accent     │
-│  ██ #d90000  Blood Red       — Error / Danger        │
-│  ██ #00ff41  Toxic Green     — Success States        │
-│  ██ #d4af37  Spectral Gold   — Highlights            │
-└─────────────────────────────────────────────────────┘
-```
+| Color | Hex | Usage |
+|---|---|---|
+| Void Black | `#0a0a0a` | Primary Background |
+| Dark Purple | `#1a0a1f` | Secondary Background |
+| Neon Purple | `#8b00ff` | Primary Accent |
+| Halloween Orange | `#ff6600` | Secondary Accent |
+| Blood Red | `#d90000` | Error / Danger |
+| Toxic Green | `#00ff41` | Success States |
+| Spectral Gold | `#d4af37` | Highlights |
 
 ### Typography
 
@@ -329,7 +332,7 @@ The main event page with the following sections:
 |---|---|
 | **Firebase not connecting** | Verify `firebase-config.js` has correct credentials and check network connectivity |
 | **Three.js not rendering** | Ensure WebGL is supported in the browser; check console for CDN errors |
-| **Countdown shows `000`** | Verify `countdown.js` has the correct event date set |
+| **Countdown shows 000** | Verify `countdown.js` has the correct event date set |
 | **Admin login fails** | Confirm user exists in Firebase Auth console; check email/password |
 | **Registration fails** | Check Firestore rules allow public writes to registration collections |
 | **Sounds not playing** | Browser autoplay policies may require a user gesture first |
@@ -380,7 +383,7 @@ In `js/firebase-config.js`, add entries to `defaultTournaments`:
 
 ## 📦 Deployment
 
-This project is configured for **Firebase Hosting** out of the box. See [`DEPLOYMENT.md`](DEPLOYMENT.md) for the full deployment guide.
+This project is configured for **Firebase Hosting** out of the box. See [DEPLOYMENT.md](DEPLOYMENT.md) for the full deployment guide.
 
 **Quick deploy:**
 
@@ -430,4 +433,3 @@ This project is proprietary software created for **Vedam Esports**. All rights r
 **Happy Halloween Gaming! 🎮⚔️🏆**
 
 </div>
-]]>
